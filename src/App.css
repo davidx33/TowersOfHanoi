@@ -2,18 +2,23 @@
   text-align: center;
 }
 
+.disc {
+  height: 20px;
+  background-color: crimson;
+}
+
 .hanoi {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   padding-top: 50px;
   padding-left: 50px;
   padding-right: 50px;
+  position: relative;
 }
 
 .hanoi .line {
   background-color: black;
-  height: 100px;
+  height: 180px;
   width: 1px;
   cursor: pointer;
   padding-left: 10px;
@@ -22,4 +27,20 @@
 
 .hanoi:hover .line {
   background-color: blue
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.disks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%,0);
 }

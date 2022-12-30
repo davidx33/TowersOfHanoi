@@ -4,15 +4,26 @@ import './App.css';
 
 
 function App() {
-  const [towers, setTowers] = useState([3, 0, 0])
+  const [towers, setTowers] = useState([5, 0, 0])
 
   return (
     <div className="App">
-      <div>
+      <div className='wrapper'>
         {towers.map((towerHeight, index) => (
           <div className='hanoi' key={index}>
             {towerHeight}
             <div className='line'>
+            </div>
+
+            <div className='disks'>
+
+            {[...new Array(towerHeight)].map((_, idx) => (
+              <div className='disc'
+                style={{ width: `${idx * 10 + 10}px` }}>
+              </div>
+            ))
+            }
+            
             </div>
           </div>
         ))
