@@ -15,10 +15,9 @@ function App() {
     <div className="App">
       <div className='wrapper'>
         {towers.map((towerHeight, index) => (
-          <div className={selectedTower === index ? 'hanoi' : 'selected'}
+          <div className={'hanoi ' + (selectedTower === index ? 'selected' : '')}
           key={index} 
           onClick={() => (handleSelectTower(index))}>
-          {towerHeight}
           <div className='line'>
           </div>
             <div className='disks'>

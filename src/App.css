@@ -45,6 +45,6 @@
   transform: translate(-50%,0);
 }
 
-.selected {
-  
+.hanoi.selected .line {
+  background-color: yellow;
 }
