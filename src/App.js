@@ -4,7 +4,8 @@ import './App.css';
 
 
 function App() {
-  const [towers, setTowers] = useState([5, 0, 0])
+  // need to use a 2-D array, so the width's of the blocks are transferred over correctly
+  const [towers, setTowers] = useState([5, 4, 3, 2, 1], [], [])
   const [selectedTower, setSelectedTower] = useState();
 
   function handleClickedTower(clickedToweridx) {
@@ -12,12 +13,8 @@ function App() {
     if (selectedTower !== undefined) {
       // decrement clicked tower and increment the tower that is clicked afterward
       const newTowers = [...towers]
-      // the tower that has already been clicked is decremented by one; tower index alrdy assigned to selectedTower
-      newTowers[selectedTower]--;
-      // the tower that is clicked next is incremented by one
-      newTowers[clickedToweridx]++;
-      setTowers(newTowers)
-      // make it so that no tower is actively clicked
+      const poppedDisc = newTowers[selectedTower].pop();
+      newTowers[clickedToweridx].push(poppedDisc)
       selectedTower(undefined)
     } else {
       setSelectedTower(clickedToweridx)
@@ -27,17 +24,17 @@ function App() {
   return ( 
     <div className="App">
       <div className='wrapper'>
-        {towers.map((towerHeight, towerIndex) => (
+        {/* in discs, towers is mapping over an array of numbers */}
+        {towers.map((discs, towerIndex) => (
           <div className={'hanoi ' + (selectedTower === towerIndex ? 'selected' : '')}
             key={towerIndex}
             // assigns selectedTower == the index of the tower selected
             onClick={() => (handleClickedTower(towerIndex))}>
-            <div className='line'>
-            </div>
+            <div className='line'></div>
             <div className='disks'>
-              {[...new Array(towerHeight)].map((_, discIdx) => (
+              {discs.map((discNumber) => (
                 <div className='disc'
-                  style={{ width: `${discIdx * 10 + 10}px` }}>
+                  style={{ width: `${discNumber * 10 + 10}px` }}>
                 </div>
               ))
               }
