@@ -21,7 +21,7 @@ function App() {
     }
   }
 
-  return ( 
+  return (
     <div className="App">
       <div className='wrapper'>
         {/* in discs, towers is mapping over an array of numbers */}
@@ -34,6 +34,7 @@ function App() {
             <div className='disks'>
               {discs.map((discNumber) => (
                 <div className='disc'
+                key={discNumber}
                   style={{ width: `${discNumber * 10 + 10}px` }}>
                 </div>
               ))
