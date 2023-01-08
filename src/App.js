@@ -32,7 +32,7 @@ function App() {
             onClick={() => (handleClickedTower(towerIndex))}>
             <div className='line'></div>
             <div className='disks'>
-              {discs.map((discNumber) => (
+              {Array.from(discs).map((discNumber) => (
                 <div className='disc'
                 key={discNumber}
                   style={{ width: `${discNumber * 10 + 10}px` }}>
